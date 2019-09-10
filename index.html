@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Assignment 2</title>
+  <link href='https://fonts.googleapis.com/css?family=Bungee Hairline' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link rel="stylesheet" href="loader.css">
+  <link rel="stylesheet" href="main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.2.0/handlebars.min.js" integrity="sha256-fIuSfP8oRbwWG9pRr+FaGfBU62kYY+7YqUsXSCgnYqM=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
+    
+</head>
+<body>
+
+<h1 id = "topheader">Search Subreddit</h1>
+
+<form class = "searchbar">
+<input type="text" name = "userinput" placeholder="Type Something..." onclick="" />
+<button type = "submit">Search</button>
+</form>
+
+
+<div id="results">
+
+<template id = "posts-template">
+    {{#each post}}
+    <div class = "card">
+        <a href = "{{data.url}}">
+            <h3>
+                {{data.title}}
+            </h3>
+        </a>
+        <div class = "score">
+            Score: {{commas data.score}}
+        </div>
+        <div class = "subscribers">
+            Subscribers: {{commas data.subreddit_subscribers}}
+            <!--add helper-->
+        </div>
+        <div class = "comments">
+            {{#if data.num_comments}}
+                Comments: {{data.num_comments}}
+            {{/if}}
+        </div>
+        
+    </div>
+    {{/each}}
+</template>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="main.js"></script>
+<script src="moment.js"></script>
+<script src="purify.min.js"></script>
+
+
+
+</body>
+</html>
