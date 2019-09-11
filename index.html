@@ -27,7 +27,7 @@
 <template id = "posts-template">
     {{#each post}}
     <div class = "card">
-        <a href = "{{data.url}}">
+        <a href = "{{data.url}}" target = '_blank'>
             <h3>
                 {{data.title}}
             </h3>
@@ -42,6 +42,8 @@
         <div class = "comments">
             {{#if data.num_comments}}
                 Comments: {{data.num_comments}}
+                {{else}}
+                No comments
             {{/if}}
         </div>
         
